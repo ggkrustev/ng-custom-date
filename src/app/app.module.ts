@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
-
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { IntlModule } from '@progress/kendo-angular-intl';
 import { AppComponent } from './app.component';
 
 
@@ -10,9 +12,14 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+      BrowserModule,
+      BrowserAnimationsModule,
+      DateInputsModule
   ],
-  providers: [],
+    providers:    [{
+        // Set default locale to bg-BG
+        provide: LOCALE_ID, useValue: 'de'
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
